@@ -1,13 +1,14 @@
 class Solution {
     public int numberOfSubmatrices(char[][] grid) {
-        int rows =grid.length,cols=grid[0].length;
+        int rows =grid.length;
+        int cols=grid[0].length;
         int [] sumX =new int [cols];
         int [] sumY = new int [cols];
         
         int out=0;
         for(int i=0;i<rows;i++){
-            int rx=0 ,ry=0;
-
+            int rx=0;
+            int ry =0;
             for(int j=0;j<cols;j++){
                 if(grid[i][j]=='X')rx++;
                 else if(grid[i][j]=='Y')ry++;
