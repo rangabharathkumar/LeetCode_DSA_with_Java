@@ -1,27 +1,22 @@
 class Solution {
     public int numberOfSubmatrices(char[][] grid) {
-        int m = grid.length, n = grid[0].length;
-        int ans = 0;
+        int rows =grid.length,cols=grid[0].length;
+        int [] sumX =new int [cols];
+        int [] sumY = new int [cols];
+        
+        int out=0;
+        for(int i=0;i<rows;i++){
+            int rx=0 ,ry=0;
 
-        int[] px = new int[n];
-        int[] py = new int[n];
+            for(int j=0;j<cols;j++){
+                if(grid[i][j]=='X')rx++;
+                else if(grid[i][j]=='Y')ry++;
 
-        for (int i = 0; i < m; i++) {
-            int rowX = 0, rowY = 0;
-
-            for (int j = 0; j < n; j++) {
-                if (grid[i][j] == 'X') rowX++;
-                else if (grid[i][j] == 'Y') rowY++;
-
-                px[j] += rowX;
-                py[j] += rowY;
-
-                if (px[j] == py[j] && px[j] > 0) {
-                    ans++;
-                }
+                sumX[j]+=rx;
+                sumY[j] +=ry;
+                if(sumX[j]>0 && sumX[j]==sumY[j])out++;
             }
         }
-
-        return ans;
+        return out;
     }
 }
