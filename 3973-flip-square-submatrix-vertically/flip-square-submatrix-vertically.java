@@ -4,7 +4,7 @@ class Solution {
         int bottom=x+k-1;
         int i=y;
         while(top <(x+k/2)){
-            while(i<=y+k-1){
+            while(i<y+k){
             grid[top][i]=grid[top][i]+grid[bottom][i];
             grid[bottom][i]=grid[top][i]-grid[bottom][i];
             grid[top][i]=grid[top][i]-grid[bottom][i];
